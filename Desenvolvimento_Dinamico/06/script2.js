@@ -1,9 +1,15 @@
-var pessoa = ["Eduardo","Joana","Walace","Rosana"];
-var gerente = ["Davi","Manuela"];
+var diaSem = 4;
 
-var pessoas1 = pessoa.slice(1,3);  // cria novo array sem alterar o array original
-console.log(pessoa);
-console.log(pessoas1);
-
-var empresa = pessoa.concat(gerente); //concatena "UNE" dois arrays
-console.log(empresa);
+switch(diaSem){ //compara valor da variavel com as condições
+    case 1:         //Caso diaSem = 1 faz a ação
+        console.log("Domingo");
+        break;
+    case 2:
+        console.log("Segunda");
+        break;
+    case 3:
+        console.log("Terça");
+        break;
+    default:
+        console.log("Esse dia da semana não existe!");
+}

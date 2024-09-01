@@ -1,16 +1,17 @@
-var arr2 = [1,2,3,4,5,6,7];
-console.log(arr2);
-arr2.splice(2,3); //remove 3 objetos do array apartir da posição 2
-console.log(arr2);
+var pais = "Brasil";
 
-var nomes = ["Maria","João","Lucas","Pedro"];
-console.log(nomes);
-var novos = nomes.splice(1,2,"Luiz","Ronaldo"); // Substitui nomes do array
-console.log(novos); // Nomes subsituidos
-console.log(nomes); // Array final
+if(pais != "Brasil"){  //condição "SE"
+    console.log("Você é estrangeiro");
+}else{                  // condição "SE NÂO"
+    console.log("Você é brasileiro");
+};
 
+var idade = 20;
 
-var pais = ["Brasil", "Argentina","Colombia"];
-console.log(pais);
-pais.unshift("Uruguai"); //Adiciona um objeto no inicio do array
-console.log(pais);
+if(idade < 16){                 //condição "SE"
+    console.log("Não vota");
+}else if (idade < 18 && idade > 16){//condição "SE NÂO SE"
+    console.log("Voto opcinal");
+}else{                              //condição "SENÂO"
+    console.log("Voto obrigatório");
+}
