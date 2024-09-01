@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Reserva de Viagem</title>
+</head>
+<body>
+    <header>
+        <h1>Formulário de Reserva de Viagem</h1>
+    </header>
+    <section>
+        <form method="get" action="">
+            <fieldset>
+                <legend><h4>Dados do cliente</h4></legend>
+                <label for="nome">Nome</label><br>
+                <input type="text" name="nome" required><br>
+
+                <label for="email">Email</label><br>
+                <input type="email" name="email" required><br>
+            </fieldset>
+
+            <fieldset>
+                <legend><h4>Serviços desejados</h4></legend>
+                <label>
+                    <input type="checkbox" name="compraPassagem" value="compraPassagem">Compra de passagens
+                </label>
+                <label>
+                    <br><input type="checkbox" name="hospedagem" value="hospedagem">Reserva de Hospedagem
+                </label>
+                <label>
+                    <br><input type="checkbox" name="veiculo" value="veiculo">Aluguel de veículos
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend><h4>Forma de pagamento</h4></legend>
+                <label>
+                    <input type="radio" name="formaPagamento" value="credito">Cartão de crédito
+                </label>
+                <label>
+                    <input type="radio" name="formaPagamento" value="boleto">Boleto
+                </label>
+                <label>
+                    <input type="radio" name="formaPagamento" value="pix">Pix
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend><h4>Prazo de pagamento</h4></legend>
+                <select name="prazo">
+                    <option value="aVista" selected>À vista</option>
+                    <option value="5x">5x sem juros</option>
+                    <option value="10x">10x com juros</option>
+                </select>
+            </fieldset>
+
+            <br><input type="submit">
+
+        </form>
+    </section>
+
+    <footer>
+        <p>
+            Formulário de Reserva de Viagem Avançado
+            <br>
+            Desenvolvido por JoseanB Criado em 24/08/2024
+        </p>
+    </footer>
+</body>
+</html>
