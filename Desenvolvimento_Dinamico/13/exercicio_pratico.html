@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade prática</title>
+</head>
+<body>
+  <header><h1>Cadastro de funcionário</h1></header>
+  <div class="formulario">
+
+    <form name="formCadastro" onsubmit="validarFormulario()">
+        <label>Nome: </label>
+        <input type="text" id="nome" required/>
+            <p></p>
+        <label>Idade: </label>
+        <input type="text" id="idade" required/>
+            <p></p>
+        <label>Cargo :</label>
+        <select id="cargo" onchange="alterarCargo()">
+            <option value="Gerente" >Gerente</option>
+            <option value="Desenvolvedor">Desenvolvedor</option>
+        </select>
+
+        <p id="formCargo"></p>
+        <button type="submit">Cadastrar</button>
+        <h4 id="apresentar"></h4>
+        <p id="trabalho"></p>
+
+        
+    </form>
+
+  </div>
+    
+</body>
+
+<script>
+    function alterarCargo() {
+    var dropdown = document.getElementById("cargo");
+    var cargo = dropdown.options[dropdown.selectedIndex].value;
+    if(cargo === "Gerente"){
+        document.getElementById("formCargo").innerHTML = '<label>Departamento: </label> <input type="text" id="departamento" required/>';
+    }else{
+        document.getElementById("formCargo").innerHTML = '<label>Linguagem: </label> <input type="text" id="linguagem" required/>';
+    }
+}
+
+class funcionario{
+    constructor(nome,idade,cargo){
+        this.nome = nome;
+        this.idade = idade;
+        this.cargo = cargo;
+        this.trabalhando = true;
+    }
+
+        seApresentar(){
+        alert("Olá meu nome é " + this.nome + " tenho " + this.idade + " anos e sou " + this.cargo);
+    }
+
+
+    trabalhar(){
+        if(this.trabalhando){
+            console.log("O funcionário " + this.nome + " já esta trabalhando.")
+            return;
+        }
+        this.trabalhando = true;
+    }
+
+}
+
+class gerente extends funcionario{
+    constructor(nome,idade,cargo,departamento){
+        super(nome,idade,cargo);
+        this.departamento = departamento;
+        this.gerenciando = false;
+    }
+
+    gerenciar(){
+        if(this.gerenciando){
+            console.log("O funcionário " + this.nome + " já esta gerenciando.")
+            return;
+        }
+        this.gerenciando = true;
+    }
+}
+
+class desenvolvedor extends funcionario{
+    constructor(nome,idade,cargo,linguagem){
+        super(nome,idade,cargo);
+        this.linguagem = linguagem;
+        this.programando = false;
+    }
+
+    programar(){
+        if(this.programando){
+            console.log("O funcionário " + this.nome + " está programando.")
+            return;
+        }
+        this.programando = true;
+    }
+}
+
+
+function validarFormulario(){
+
+    
+nome = document.forms["formCadastro"]["nome"].value;
+idade = document.forms["formCadastro"]["idade"].value;
+cargo = document.forms["formCadastro"]["cargo"].value;
+try {
+    let resultado = verificarIdade(idade);
+    if(cargo === "Gerente"){
+         var funcao = document.forms["formCadastro"]["departamento"].value;
+         var funcionario = new gerente(nome,idade,cargo,departamento);
+
+    }else{
+          var funcao = document.forms["formCadastro"]["linguagem"].value;
+          var funcionario = new desenvolvedor(nome,idade,cargo,linguagem);
+ 
+}
+
+apresentar();
+event.preventDefault();
+
+} catch(error) {
+    alert("Ocorreu uma exeção: " + error.message)
+}
+    
+
+
+}
+function apresentar(){
+    //alert("Olá meu nome é " + this.nome + " tenho " + this.idade + " anos e sou " + this.cargo);
+    document.getElementById("apresentar").innerHTML = "Olá meu nome é " + this.nome + " tenho " + this.idade + " anos e sou " + this.cargo
+    document.getElementById("trabalho").innerHTML = '<button onclick="trabalhar()">Trabalhar</button>'
+}
+
+function trabalhar(){
+    alert("O funcionário " + this.nome + " já esta trabalhando.")
+}
+
+function verificarIdade(valor) {
+    if (typeof valor === 'number') {
+        throw new Error("O valor fornecido para idade não é um número.");
+    }
+    return;
+}
+    
+</script>
+</html>
